@@ -242,25 +242,10 @@
       "languageVersion": "3.5"
     }
   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d61092dc6f4e73a1a6e281028d70f26ef1ae675
-  "generated": "2024-12-26T06:47:49.222641Z",
-=======
-  "generated": "2024-12-26T06:57:28.286758Z",
->>>>>>> John-dev
-<<<<<<< HEAD
-=======
-  "generated": "2024-12-26T07:03:05.442025Z",
->>>>>>> John-dev
-=======
->>>>>>> 6d61092dc6f4e73a1a6e281028d70f26ef1ae675
-=======
+
+
   "generated": "2024-12-26T08:04:16.336680Z",
->>>>>>> John-dev
+
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///C:/src/flutter",
