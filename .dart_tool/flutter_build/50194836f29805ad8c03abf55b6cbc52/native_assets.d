@@ -1,0 +1,1 @@
+ C:\\Users\\JohnX\\Documents\\Flutter\\Bible\ projects\\bible_assistant\\.dart_tool\\flutter_build\\50194836f29805ad8c03abf55b6cbc52\\native_assets.yaml: 
