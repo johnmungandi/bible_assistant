@@ -3,6 +3,7 @@
 /.dart_tool
 /.idea/
 /.vscode/
+/flutter/
 *.iml
 *.log
 .DS_Store
