@@ -1,45 +1,40 @@
-
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class GroqAPI {
-  static String? apiKey = dotenv.env['GROQ_API_KEY'];
-  static const String baseUrl = 'https://api.groq.com/v1/chat/completions';
-
-  static Future<String> generateResponse(String prompt) async {
-    if (apiKey == null) {
-      throw Exception('GROQ_API_KEY not found in environment variables');
+void main() async {
+  final url = Uri.parse('https://api.groq.com/openai/v1/chat/completions');
+    final headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ${'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'}',
+    };
+    
+    final body = {
+      'messages': [
+        {
+          'role': 'user',
+          'content': 'hi'
+        }
+      ],
+      'model': 'llama-3.2-11b-vision-preview',
+      'temperature': 0,
+      'max_tokens': 8000,
+      'top_p': 1,
+      'stream': false,
+      'stop': null
+    };
+  
+    final response = await http.post(
+      url,
+      headers: headers,
+      body: jsonEncode(body),
+    );
+  
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      print(jsonResponse['choices'][0]['message']['content']);
+    } else {
+      print('Request failed with status: ${response.statusCode}');
     }
-
-    try {
-      final response = await http.post(
-        Uri.parse(baseUrl),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $apiKey',
-        },
-        body: jsonEncode({
-          'model': 'mixtral-8x7b-32768',
-          'messages': [
-            {
-              'role': 'user',
-              'content': prompt,
-            }
-          ],
-          'temperature': 0.7,
-          'max_tokens': 1024,
-        }),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data['choices'][0]['message']['content'];
-      } else {
-        throw Exception('Failed to generate response: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error generating response: $e');
-    }
-  }
+  
 }
