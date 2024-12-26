@@ -1,4 +1,4 @@
-import 'package:bible_assistant/home.dart';
+import 'package:bible_assistant/stt-models/Telugu-TTS.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      
+      home: MaterialApp(home: TeluguSTTScreen()),
     );
   }
 }
