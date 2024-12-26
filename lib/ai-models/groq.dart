@@ -37,6 +37,8 @@ void main() async {
       print(jsonResponse['choices'][0]['message']['content']);
     } else {
       print('Request failed with status: ${response.statusCode}');
+
+      print('object');
     }
   
 }
