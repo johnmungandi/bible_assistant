@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+String apiKey = const String.fromEnvironment('GROQ_API_KEY');
 void main() async {
   final url = Uri.parse('https://api.groq.com/openai/v1/chat/completions');
     final headers = {
