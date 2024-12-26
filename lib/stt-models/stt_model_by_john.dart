@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_recognition_error.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -11,7 +12,6 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 
 class SttModelByJohn with ChangeNotifier {
-  bool _hasSpeech = false;
   bool _logEvents = false;
   bool _onDevice = false;
   double level = 0.0;
@@ -21,7 +21,6 @@ class SttModelByJohn with ChangeNotifier {
   String lastError = '';
   String lastStatus = '';
   String _currentLocaleId = '';
-  List<LocaleName> _localeNames = [];
   final SpeechToText speech = SpeechToText();
 
   String get sttResult => lastWords;
@@ -35,15 +34,12 @@ class SttModelByJohn with ChangeNotifier {
         debugLogging: _logEvents,
       );
       if (hasSpeech) {
-        _localeNames = await speech.locales();
         var systemLocale = await speech.systemLocale();
         _currentLocaleId = systemLocale?.localeId ?? '';
       }
-      _hasSpeech = hasSpeech;
       notifyListeners();
     } catch (e) {
       lastError = 'Speech recognition failed: ${e.toString()}';
-      _hasSpeech = false;
       notifyListeners();
     }
   }
@@ -121,3 +117,29 @@ class SttModelByJohn with ChangeNotifier {
   }
 }
 
+
+
+void main() async {
+  ChangeNotifierProvider(
+    create: (context) => SttModelByJohn(),
+
+  );
+
+  SttModelByJohn sttmodel = SttModelByJohn();
+
+  sttmodel.initSpeechState();
+sttmodel.startListening();
+
+  sttmodel.stopListening();
+
+  sttmodel.cancelListening();
+
+  sttmodel.initSpeechState();
+
+  sttmodel.startListening();
+
+  sttmodel.stopListening();
+
+
+
+}
