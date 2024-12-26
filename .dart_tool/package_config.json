@@ -242,7 +242,15 @@
       "languageVersion": "3.5"
     }
   ],
+<<<<<<< HEAD
+<<<<<<< HEAD
   "generated": "2024-12-26T06:47:49.222641Z",
+=======
+  "generated": "2024-12-26T06:57:28.286758Z",
+>>>>>>> John-dev
+=======
+  "generated": "2024-12-26T07:03:05.442025Z",
+>>>>>>> John-dev
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///C:/src/flutter",
