@@ -16,6 +16,10 @@ migrate_working_dir/
 *.iws
 .idea/
 
+# Package related
+.dart_tool/package_config.json
+
+
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
@@ -42,3 +46,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.flutter-plugins-dependencies
