@@ -18,6 +18,7 @@ migrate_working_dir/
 
 # Package related
 .dart_tool/package_config.json
+.flutter-plugins-dependencies
 
 
 # The .vscode folder contains launch configuration and tasks you configure in
@@ -46,6 +47,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-.flutter-plugins-dependencies
+
 
 
